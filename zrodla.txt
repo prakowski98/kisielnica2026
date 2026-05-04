@@ -1,0 +1,28 @@
+﻿ŹRÓDŁA IKON (komercyjne użycie dozwolone)
+Data pobrania: 2026-04-09
+
+Zestaw ikon:
+Tabler Icons
+Strona projektu: https://tabler.io/icons
+Repozytorium: https://github.com/tabler/tabler-icons
+Licencja: MIT (dozwolone użycie komercyjne)
+Treść licencji: https://github.com/tabler/tabler-icons/blob/master/LICENSE
+
+Ikony użyte w zakładce „Oferta”:
+1. horse-toy.svg
+https://raw.githubusercontent.com/tabler/tabler-icons/master/icons/outline/horse-toy.svg
+
+2. map-route.svg
+https://raw.githubusercontent.com/tabler/tabler-icons/master/icons/outline/map-route.svg
+
+3. heart-handshake.svg
+https://raw.githubusercontent.com/tabler/tabler-icons/master/icons/outline/heart-handshake.svg
+
+4. tent.svg
+https://raw.githubusercontent.com/tabler/tabler-icons/master/icons/outline/tent.svg
+
+5. cake.svg
+https://raw.githubusercontent.com/tabler/tabler-icons/master/icons/outline/cake.svg
+
+6. horseshoe.svg
+https://raw.githubusercontent.com/tabler/tabler-icons/master/icons/outline/horseshoe.svg
