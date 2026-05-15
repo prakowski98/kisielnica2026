@@ -21,6 +21,14 @@
 var AKTUALNOSCI = [
 
   {
+    data: "2026-05-15",
+    tytul: "Dzień Dziecka w Kisielnicy — 31 maja, godz. 13:00–17:00",
+    tresc: "Drogie Dzieci, zapraszamy Was razem z Rodzicami do Kisielnicy 31 maja, żeby wspólnie świętować Dzień Dziecka!\n\nOd godz. 13:00 do 17:00 czekają na Was atrakcje:\n– alpaki i konie,\n– przejażdżki bryczką,\n– dmuchańce,\n– ognisko i kiełbaski pieczone na ogniu.\n\nNie może Was zabraknąć!",
+    zdjecie: "img/news/dzien-dziecka.jpg",
+    zdjecieOpis: "Plakat Dnia Dziecka w Ośrodku Kisielnica — 31 maja, godz. 13:00–17:00"
+  },
+
+  {
     data: "2026-05-03",
     tytul: "Zapisy na półkolonie jeździeckie 2026 otwarte!",
     tresc: "Z radością ogłaszamy, że zapisy na letnie półkolonie jeździeckie 2026 są już otwarte!\n\nW tym roku zapraszamy dzieci i młodzież w wieku 7–16 lat na tygodniowe turnusy (poniedziałek–piątek, godz. 8:00–15:00). W programie m.in.:\n– codzienne jazdy konne pod okiem instruktorów,\n– nauka pielęgnacji i karmienia koni,\n– ogniska, gry terenowe i wycieczki po okolicach Kisielnicy.\n\nLiczba miejsc jest ograniczona — nie czekaj z zapisami!\n\nAby zapisać swoje dziecko lub dowiedzieć się więcej, zadzwoń do Sylwii: +48 504 680 706.",
