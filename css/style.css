@@ -86,6 +86,42 @@ p {
 }
 
 /* ===== Header ===== */
+.affiliation-bar {
+  background: #f3f0eb;
+  border-bottom: 1px solid #e1ddd4;
+  padding: 0.4rem 1rem;
+}
+
+.affiliation-bar-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.65rem;
+  flex-wrap: wrap;
+  font-size: 0.85rem;
+  color: var(--color-text);
+}
+
+.affiliation-bar a {
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+  transition: opacity 0.15s ease;
+}
+
+.affiliation-bar a:hover,
+.affiliation-bar a:focus-visible {
+  opacity: 0.75;
+}
+
+.affiliation-bar img {
+  height: 32px;
+  width: auto;
+  display: block;
+}
+
 .site-header {
   position: sticky;
   top: var(--toolbar-height, 0px);
