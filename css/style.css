@@ -109,7 +109,8 @@ p {
 }
 
 .site-logo {
-  margin-right: auto;
+  margin-right: 0;
+  flex: 0 0 auto;
 }
 
 .header-affiliation {
@@ -192,20 +193,23 @@ p {
 /* ===== Desktop Nav ===== */
 .desktop-nav {
   display: none;
+  flex: 1 1 auto;
+  min-width: 0;
 }
 
 .desktop-nav ul {
   display: flex;
-  gap: 0.25rem;
-  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.15rem;
+  flex-wrap: nowrap;
 }
 
 .desktop-nav a {
   display: block;
-  padding: 0.5rem 0.65rem;
+  padding: 0.5rem 0.42rem;
   color: var(--color-text);
   text-decoration: none;
-  font-size: 0.9rem;
+  font-size: 0.84rem;
   border-radius: var(--radius);
   white-space: nowrap;
   min-height: 44px;
@@ -573,6 +577,13 @@ p {
 }
 
 /* ===== Team Grid (Kadra) ===== */
+.leadership-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
 .team-grid {
   display: grid;
   grid-template-columns: 1fr;
@@ -592,6 +603,19 @@ p {
   object-fit: cover;
 }
 
+.leadership-card {
+  display: grid;
+  grid-template-columns: minmax(8rem, 0.85fr) 1.15fr;
+  align-items: center;
+}
+
+.leadership-card img {
+  height: 18rem;
+  aspect-ratio: auto;
+  object-fit: contain;
+  background: linear-gradient(135deg, #f5efe5 0%, #e9dbc8 100%);
+}
+
 .team-card-body {
   padding: 1.25rem;
 }
@@ -603,14 +627,34 @@ p {
 
 .team-card .role {
   color: var(--color-primary-dark);
-  font-weight: 600;
+  font-weight: 800;
   font-size: 0.9rem;
   margin-bottom: 0.75rem;
+}
+
+.team-card .role-extra {
+  display: block;
+  margin-top: 0.25rem;
+  font-weight: 800;
 }
 
 .team-card p:last-child {
   color: var(--color-text-light);
   font-size: 0.95rem;
+}
+
+.team-section-heading {
+  margin-top: 2rem;
+}
+
+@media (max-width: 540px) {
+  .leadership-card {
+    grid-template-columns: 1fr;
+  }
+
+  .leadership-card img {
+    height: 16rem;
+  }
 }
 
 /* ===== Gallery Grid ===== */
@@ -1109,7 +1153,7 @@ button.gallery-item {
   color: var(--color-accent);
 }
 
-/* Footer — payment chips (dark background variant) */
+/* Footer â€” payment chips (dark background variant) */
 .footer-payments {
   display: flex;
   flex-wrap: wrap;
@@ -1148,7 +1192,7 @@ button.gallery-item {
   font-style: italic;
 }
 
-/* Footer — reservation phone list */
+/* Footer â€” reservation phone list */
 .footer-reservation {
   list-style: none !important;
   padding: 0 !important;
@@ -1524,21 +1568,17 @@ button.gallery-item {
   }
 }
 
-/* 768px — Tablet */
+/* 768px â€” Tablet */
 @media (min-width: 768px) {
-  .mobile-nav-toggle {
-    display: none;
-  }
-
-  .desktop-nav {
-    display: block;
-  }
-
   .cards-grid {
     grid-template-columns: repeat(2, 1fr);
   }
 
   .team-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .leadership-grid {
     grid-template-columns: repeat(2, 1fr);
   }
 
@@ -1567,7 +1607,17 @@ button.gallery-item {
   }
 }
 
-/* 1024px — Desktop */
+@media (min-width: 1180px) {
+  .mobile-nav-toggle {
+    display: none;
+  }
+
+  .desktop-nav {
+    display: block;
+  }
+}
+
+/* 1024px â€” Desktop */
 @media (min-width: 1024px) {
   .cards-grid {
     grid-template-columns: repeat(3, 1fr);
@@ -1575,6 +1625,10 @@ button.gallery-item {
 
   .team-grid {
     grid-template-columns: repeat(3, 1fr);
+  }
+
+  .leadership-card img {
+    height: 20rem;
   }
 
   .gallery-grid {
@@ -1590,7 +1644,7 @@ button.gallery-item {
   }
 }
 
-/* 1280px — Large Desktop */
+/* 1280px â€” Large Desktop */
 @media (min-width: 1280px) {
   .container {
     padding: 0 2rem;
