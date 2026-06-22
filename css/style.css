@@ -127,9 +127,9 @@ p {
 }
 
 .header-affiliation img {
-  height: 64px;
+  height: 80px;
   width: auto;
-  max-height: 64px;
+  max-height: 80px;
   display: block;
 }
 
