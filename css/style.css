@@ -14,7 +14,7 @@
   --color-white: #FFFFFF;
   --color-error: #B91C1C;
   --color-focus: #1E40AF;
-  --header-height: 96px;
+  --header-height: 112px;
   --max-width: 1200px;
   --radius: 8px;
 }
@@ -161,11 +161,22 @@ p {
 }
 
 .site-logo img {
-  height: 80px;
+  height: 96px;
   width: auto;
-  max-height: 80px;
+  max-height: 96px;
   flex-shrink: 0;
   object-fit: contain;
+}
+
+@media (max-width: 767px) {
+  :root {
+    --header-height: 104px;
+  }
+
+  .site-logo img {
+    height: 88px;
+    max-height: 88px;
+  }
 }
 
 .site-logo-text {
