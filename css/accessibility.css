@@ -64,6 +64,39 @@
   border-color: #C9A57B;
 }
 
+@media (max-width: 540px) {
+  .a11y-toolbar {
+    padding: 0.25rem 0.45rem;
+    font-size: 0.8rem !important;
+  }
+
+  .a11y-toolbar-inner {
+    justify-content: flex-start;
+    gap: 0.35rem;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+  }
+
+  .a11y-toolbar-group {
+    gap: 0.2rem;
+    flex: 0 0 auto;
+  }
+
+  .a11y-btn {
+    min-width: 38px;
+    min-height: 38px;
+    padding: 0.28rem 0.5rem;
+    font-size: 0.8rem;
+    white-space: nowrap;
+  }
+
+  .a11y-btn-contrast {
+    min-width: max-content;
+  }
+}
+
 /* ===== High Contrast Theme ===== */
 .high-contrast,
 .high-contrast body {

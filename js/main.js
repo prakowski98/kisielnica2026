@@ -70,9 +70,9 @@
       }
     });
 
-    // Close menu on resize to desktop
+    // Close menu only when the full desktop navigation replaces the mobile menu.
     window.addEventListener('resize', function () {
-      if (window.innerWidth >= 768 && mobileNav.classList.contains('is-open')) {
+      if (window.innerWidth >= 1180 && mobileNav.classList.contains('is-open')) {
         closeMenu();
       }
     });
