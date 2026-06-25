@@ -261,7 +261,7 @@
     ]
 }
   </script>
-  <link rel="stylesheet" href="css/style.css?v=20260624-1">
+  <link rel="stylesheet" href="css/style.css?v=20260624-2">
   <link rel="stylesheet" href="css/accessibility.css?v=20260624-1">
 </head>
 <body>
@@ -327,6 +327,13 @@
       <div class="container">
         <h2 id="galeria-heading" class="sr-only">Zdjęcia z ośrodka</h2>
         <div class="gallery-grid">
+          <button type="button" class="gallery-item gallery-video-item" data-type="video" data-full="img/vids/1.mp4" data-title="Film z Ośrodka Kisielnica">
+            <span class="gallery-video-thumb" aria-hidden="true">
+              <video src="img/vids/1.mp4" muted playsinline preload="metadata"></video>
+              <span class="gallery-play-badge"></span>
+            </span>
+            <span class="sr-only">Film z Ośrodka Kisielnica</span>
+          </button>
           <button type="button" class="gallery-item" data-full="img/galeria/galeria-01.jpg">
             <img src="img/galeria/galeria-01.jpg" alt="Jeźdźczyni galopująca na koniu po zaśnieżonej łące" width="400" height="300" loading="lazy" decoding="async">
           </button>
@@ -529,7 +536,7 @@
 
   <script defer src="js/accessibility-toolbar.js"></script>
   <script defer src="js/main.js"></script>
-  <script defer src="js/gallery.js"></script>
+  <script defer src="js/gallery.js?v=20260624-2"></script>
 </body>
 </html>
 

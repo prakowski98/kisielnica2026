@@ -40,11 +40,12 @@
       '<div class="lightbox-content">' +
         '<h2 id="lightbox-title" class="sr-only"></h2>' +
         '<button class="lightbox-close" aria-label="Zamknij galerię">&times;</button>' +
-        '<button class="lightbox-prev" aria-label="Poprzednie zdjęcie">&#8249;</button>' +
+        '<button class="lightbox-prev" aria-label="Poprzedni materiał">&#8249;</button>' +
         '<div class="lightbox-img-wrap">' +
           '<img class="lightbox-img" src="" alt="" />' +
+          '<video class="lightbox-video" controls playsinline preload="metadata" hidden></video>' +
         '</div>' +
-        '<button class="lightbox-next" aria-label="Następne zdjęcie">&#8250;</button>' +
+        '<button class="lightbox-next" aria-label="Następny materiał">&#8250;</button>' +
         '<div class="lightbox-counter" aria-live="polite" role="status"></div>' +
       '</div>';
 
@@ -62,7 +63,7 @@
     if (!overlay) createLightbox();
     lastFocusedElement = document.activeElement;
     currentIndex = index;
-    updateImage();
+    updateMedia();
     overlay.removeAttribute('hidden');
     overlay.classList.add('is-open');
     document.body.style.overflow = 'hidden';
@@ -72,6 +73,7 @@
   }
 
   function closeLightbox() {
+    stopVideo();
     overlay.setAttribute('hidden', '');
     overlay.classList.remove('is-open');
     document.body.style.overflow = '';
@@ -82,30 +84,67 @@
     }
   }
 
-  function updateImage() {
+  function stopVideo() {
+    if (!overlay) return;
+    var video = overlay.querySelector('.lightbox-video');
+    if (!video) return;
+    video.pause();
+    video.removeAttribute('src');
+    video.load();
+  }
+
+  function getItemTitle(item) {
+    var imgEl = item.querySelector('img');
+    return item.getAttribute('data-title') ||
+      (imgEl ? imgEl.alt : '') ||
+      item.textContent.trim() ||
+      'Materiał z galerii';
+  }
+
+  function updateMedia() {
     var item = galleryItems[currentIndex];
     var img = overlay.querySelector('.lightbox-img');
-    var fullSrc = item.getAttribute('data-full') || item.querySelector('img').src;
-    var altText = item.querySelector('img').alt;
-    img.src = fullSrc;
-    img.alt = altText;
+    var video = overlay.querySelector('.lightbox-video');
+    var isVideo = item.getAttribute('data-type') === 'video';
+    var previewImg = item.querySelector('img');
+    var previewVideo = item.querySelector('video');
+    var fullSrc = item.getAttribute('data-full') ||
+      (previewImg ? previewImg.src : '') ||
+      (previewVideo ? previewVideo.currentSrc || previewVideo.src : '');
+    var titleText = getItemTitle(item);
+
+    stopVideo();
+
+    if (isVideo) {
+      img.setAttribute('hidden', '');
+      img.removeAttribute('src');
+      img.alt = '';
+      video.removeAttribute('hidden');
+      video.src = fullSrc;
+      video.load();
+    } else {
+      video.setAttribute('hidden', '');
+      img.removeAttribute('hidden');
+      img.src = fullSrc;
+      img.alt = titleText;
+    }
 
     // Update dialog heading for screen readers
     var title = overlay.querySelector('#lightbox-title');
-    title.textContent = altText;
+    title.textContent = titleText;
 
     overlay.querySelector('.lightbox-counter').textContent =
-      'Zdjęcie ' + (currentIndex + 1) + ' z ' + galleryItems.length;
+      'Materiał ' + (currentIndex + 1) + ' z ' + galleryItems.length;
   }
 
   function showPrev() {
     currentIndex = (currentIndex - 1 + galleryItems.length) % galleryItems.length;
-    updateImage();
+    updateMedia();
   }
 
   function showNext() {
     currentIndex = (currentIndex + 1) % galleryItems.length;
-    updateImage();
+    updateMedia();
   }
 
   function handleLightboxKeys(e) {
@@ -124,7 +163,7 @@
 
     // Focus trap
     if (e.key === 'Tab') {
-      var focusable = overlay.querySelectorAll('button:not([hidden])');
+      var focusable = overlay.querySelectorAll('button:not([hidden]), video[controls]:not([hidden])');
       var first = focusable[0];
       var last = focusable[focusable.length - 1];
 
@@ -144,9 +183,9 @@
 
   // Set aria-label on native <button> gallery items
   galleryItems.forEach(function (item, index) {
-    var imgEl = item.querySelector('img');
-    var altText = imgEl ? imgEl.alt : 'zdjęcie';
-    item.setAttribute('aria-label', 'Powiększ: ' + altText);
+    var isVideo = item.getAttribute('data-type') === 'video';
+    var titleText = getItemTitle(item);
+    item.setAttribute('aria-label', (isVideo ? 'Odtwórz film: ' : 'Powiększ: ') + titleText);
 
     item.addEventListener('click', function () {
       openLightbox(index);
