@@ -763,7 +763,13 @@ p {
 .team-card .role-extra {
   display: block;
   margin-top: 0.25rem;
-  font-weight: 800;
+  font-weight: 900;
+}
+
+.team-card .role-emphasis {
+  color: var(--color-primary-dark);
+  font-weight: 900;
+  margin-bottom: 0.75rem;
 }
 
 .team-card p:last-child {
